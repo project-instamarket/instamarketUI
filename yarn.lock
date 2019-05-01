@@ -10034,6 +10034,11 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-dropd@^1.1.4-alpha.0:
+  version "1.1.4-alpha.0"
+  resolved "https://registry.npmjs.org/vue-dropd/-/vue-dropd-1.1.4-alpha.0.tgz#06cc0112a5529a9911c263740c8ffc590d2da132"
+  integrity sha512-MElgxqG+BX527t4ZBnUHlfszWaNVTEcVK25zlLXsm6bLbyGh2mxnz/MGwTUCgk5WPqaFpSYcJYfEqpM7qHRvzg==
+
 vue-eslint-parser@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-5.0.0.tgz#00f4e4da94ec974b821a26ff0ed0f7a78402b8a1"

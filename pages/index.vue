@@ -7,7 +7,6 @@
 
 <script>
 import Button from '~/components/Button.vue'
-// import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
   components: {

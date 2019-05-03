@@ -82,3 +82,5 @@ dist
 
 # Service worker
 sw.*
+ngrok
+.DS_Store

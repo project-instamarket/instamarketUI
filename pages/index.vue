@@ -1,16 +1,19 @@
 <template>
   <section id="landing-page">
     <h1>Redefining social shopping.</h1>
-    <Button label="Take A Dive" landing />
+    <a :href="igLink" class="landing">Take A Dive</a>
   </section>
 </template>
 
 <script>
-import Button from '~/components/Button.vue'
+const CLIENT_ID = process.env.IG_CLIENT_ID
+const REDIRECT_URI = `${process.env.API_BASE_URL}/auth`
 
 export default {
-  components: {
-    Button
+  data() {
+    return {
+      igLink: `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`
+    }
   },
   metaInfo: {
     title: 'Home',
@@ -38,6 +41,20 @@ export default {
     justify-content: center;
   }
 
+  .landing {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    color: #FFF;
+    border: 2px solid white;
+    padding: 0.5rem 2.5rem;
+    text-transform: uppercase;
+    outline: none;
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+  }
+
   h1 {
     font-size: 4.5rem;
     margin: 1.5rem 0;
@@ -46,6 +63,11 @@ export default {
   @media (min-width: 768px) and (max-width: 1000px) {
     h1 {
       font-size: 3rem;
+    }
+
+    .landing {
+      margin: 1rem 0;
+      letter-spacing: 0;
     }
   }
 
@@ -57,6 +79,13 @@ export default {
     h1 {
       font-size: 2rem;
     }
+
+    .landing {
+      margin: 1rem 0;
+      letter-spacing: 0;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+    }
   }
 
   /*
@@ -66,6 +95,13 @@ export default {
   @media (min-width: 320px) and (max-width: 480px) {
     h1 {
       font-size: 1.5rem;
+    }
+
+    .landing {
+      margin: 0.5rem 0;
+      letter-spacing: 0;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
     }
   }
 </style>

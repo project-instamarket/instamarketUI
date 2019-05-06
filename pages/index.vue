@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import Noty from 'noty'
+import { mapActions } from 'vuex'
+
+import { notyOptions } from '../utils/options.util.js'
+
 const CLIENT_ID = process.env.IG_CLIENT_ID
-const REDIRECT_URI = `${process.env.API_BASE_URL}/auth`
+const REDIRECT_URI = `${process.env.BASE_URL}`
 
 export default {
   data() {
@@ -15,10 +20,27 @@ export default {
       igLink: `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`
     }
   },
-  metaInfo: {
-    title: 'Home',
-    // override the parent template and just use the above title only
-    titleTemplate: null
+  created() {
+    const { query: { code } } = this.$router.currentRoute
+    const isAuthenticated = this.$store.getters['authModule/isUserAuthenticated']
+
+    if (isAuthenticated) {
+      this.$router.push('/dashboard')
+      return null
+    } else if (code) {
+      return this.authenticateUser({ code })
+        .then(() => this.$router.push('/dashboard'))
+        .catch(() => new Noty({
+          ...notyOptions,
+          type: 'error',
+          text: 'Error authenticating user.'
+        }).show())
+    }
+  },
+  methods: {
+    ...mapActions({
+      authenticateUser: 'authModule/authenticateUser'
+    })
   }
 }
 </script>

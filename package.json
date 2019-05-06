@@ -19,11 +19,16 @@
     "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.0",
     "fastify": "^1.13.3",
+    "js-cookie": "^2.2.0",
+    "jwt-decode": "^2.2.0",
+    "noty": "^3.2.0-beta",
     "nuxt": "^2.4.0",
+    "vue-class-component": "^7.0.2",
     "vue-dropd": "^1.1.4-alpha.0",
     "vuetify": "^1.5.5",
     "vuetify-loader": "^1.2.1",
     "vuex": "^3.1.0",
+    "vuex-class": "^0.3.2",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {

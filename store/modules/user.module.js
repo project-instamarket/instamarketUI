@@ -15,6 +15,9 @@ const userModule = {
     setLoggedinUser({ commit }, payload) {
       commit(SET_USER, payload)
     }
+  },
+  getters: {
+    userInfo: state => state.user
   }
 }
 

@@ -20,13 +20,12 @@ export default {
       igLink: `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`
     }
   },
-  created() {
+  mounted() {
     const { query: { code } } = this.$router.currentRoute
     const isAuthenticated = this.$store.getters['authModule/isUserAuthenticated']
 
     if (isAuthenticated) {
       this.$router.push('/dashboard')
-      return null
     } else if (code) {
       return this.authenticateUser({ code })
         .then(() => this.$router.push('/dashboard'))

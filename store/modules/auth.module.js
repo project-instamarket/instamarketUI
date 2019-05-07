@@ -30,7 +30,7 @@ const authModule = {
           `${apiBaseUrl}/auth`,
           payload
         )
-        return dispatch('onSuccessfulLogin', response.data.data)
+        return dispatch('onSuccessfulLogin', response.data)
       } catch (error) {
         return Promise.reject(error)
       }

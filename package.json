@@ -4,6 +4,10 @@
   "description": "InstaMarket gives sellers the opportunity to transform their Instagram pages to an e-commerce site extension",
   "author": "Bolaji Olajide",
   "private": true,
+  "engine": {
+    "node": "10.x",
+    "yarn": "1.15.x"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",

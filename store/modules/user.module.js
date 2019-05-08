@@ -7,10 +7,10 @@ const userModule = {
       state.user = payload
     }
   },
-  state: {
+  state: () => ({
     user: {},
     pending: false
-  },
+  }),
   actions: {
     setLoggedinUser({ commit }, payload) {
       commit(SET_USER, payload)

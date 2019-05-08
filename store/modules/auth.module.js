@@ -5,8 +5,6 @@ const SET_LOGIN_STATE = 'SET_LOGIN_STATE'
 const SET_LOGOUT_STATE = 'SET_LOGOUT_STATE'
 const apiBaseUrl = process.env.API_BASE_URL
 
-export const state = () => ({ isAuthenticated: false })
-
 const authModule = {
   namespaced: true,
   mutations: {
@@ -42,7 +40,7 @@ const authModule = {
       dispatch('userModule/setLoggedinUser', decode(payload.token), { root: true })
     }
   },
-  state: { isAuthenticated: false },
+  state: () => ({ isAuthenticated: false }),
   getters: {
     isUserAuthenticated: state => state.isAuthenticated
   }

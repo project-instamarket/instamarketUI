@@ -2,8 +2,6 @@ const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const pkg = require('./package')
 require('dotenv').config()
 
-console.log(process.env)
-
 module.exports = {
   mode: 'universal',
 

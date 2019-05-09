@@ -1,5 +1,6 @@
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const pkg = require('./package')
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -62,6 +63,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: process.env.API_BASE_URL
   },
 
   /*

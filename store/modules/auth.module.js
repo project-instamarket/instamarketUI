@@ -1,8 +1,12 @@
 import cookies from 'js-cookie'
 import decode from 'jwt-decode'
+import dotenv from 'dotenv'
 
 const SET_LOGIN_STATE = 'SET_LOGIN_STATE'
 const SET_LOGOUT_STATE = 'SET_LOGOUT_STATE'
+
+dotenv.config()
+
 const apiBaseUrl = process.env.API_BASE_URL
 console.log(apiBaseUrl, '<==== API BASE URL')
 

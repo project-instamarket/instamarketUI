@@ -4,6 +4,7 @@ import decode from 'jwt-decode'
 const SET_LOGIN_STATE = 'SET_LOGIN_STATE'
 const SET_LOGOUT_STATE = 'SET_LOGOUT_STATE'
 const apiBaseUrl = process.env.API_BASE_URL
+console.log(apiBaseUrl, '<==== API BASE URL')
 
 const authModule = {
   namespaced: true,

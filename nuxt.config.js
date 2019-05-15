@@ -30,6 +30,23 @@ module.exports = {
   },
 
   /*
+   ** manifest details for the PWA
+   */
+  manifest: {
+    name: 'instamarket',
+    short_name: 'instamarket',
+    description: 'InstaMarket gives sellers the opportunity to transform their Instagram pages to an e-commerce site extension',
+    display: 'standalone',
+    background_color: '#ffffff',
+    theme_color: '#0b0b0b',
+    lang: 'en'
+  },
+
+  icon: {
+    iconSrc: './assets/images/icon.png'
+  },
+
+  /*
   ** Customize the progress-bar color
   */
   loading: { color: '#0b0b0b' },

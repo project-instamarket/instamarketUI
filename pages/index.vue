@@ -1,8 +1,88 @@
 <template>
-  <section id="landing-page">
-    <h1>Redefining social shopping.</h1>
-    <a :href="igLink" class="landing">Take A Dive</a>
-  </section>
+  <div id="landing-page-container">
+    <section class="landing-page">
+      <img src="~assets/images/logo.png" />
+      <h1>Redefining social shopping.</h1>
+      <h2>Let your followers shop your instagram feed</h2>
+      <a :href="igLink" class="landing">Take A Dive</a>
+    </section>
+
+    <section class="landing-page-features">
+      <div class="feature">
+        <img src="~assets/svg/select-posts.svg" />
+        <span class="feature-heading">Select Posts</span>
+        <span>
+          Convert your followers into customers as they shop
+          any selected posts
+        </span>
+      </div>
+
+      <div class="feature">
+        <img src="~assets/svg/create-shop.svg" />
+        <span class="feature-heading">Create your shop</span>
+        <span>
+          Display your feeds on your own personal shop customized
+          for you
+        </span>
+      </div>
+
+      <div class="feature">
+        <img src="~assets/svg/cart.svg" />
+        <span class="feature-heading">Easy checkout</span>
+        <span>
+          Wondering how they'll pay?
+          That's sorted, customers can checkout easily on your shop
+        </span>
+      </div>
+
+      <div class="feature">
+        <img src="~assets/svg/transport.svg" />
+        <span class="feature-heading">Up a notch!</span>
+        <span>
+          Hassle free delivery!
+          Tell us how your clients how they'll get their items
+        </span>
+      </div>
+    </section>
+
+    <section class="instagram-feed">
+      <h3>Feed From Instagram</h3>
+      <span>
+        Import your posts and description, and prices
+        and you're all set!
+      </span>
+    </section>
+
+    <section class="instagram-grid">
+      <h2>Shopping made easy</h2>
+      <div class="instagram-feed-grid">
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="footer-links">
+        <a href="#">Integration</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal</a>
+        <a href="#">Shopping Policy</a>
+        <a href="#">Help</a>
+      </div>
+      <span>Copyright &copy; {{new Date().getFullYear()}}. Instamarket.co</span>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -45,15 +125,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  /* figure out a way to import images locally */
-  #landing-page {
-    height: 100vh;
+  .landing-page {
+    height: 70vh;
     width: 100vw;
     position: relative;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(0deg,rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("https://res.cloudinary.com/proton/image/upload/v1556763691/background_tvfkiu.jpg");
-    color: #FFF;
+    background: linear-gradient(0deg,rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.2)), url("~assets/images/landing_man.jpg");
+    color: #000;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -62,27 +139,152 @@ export default {
     justify-content: center;
   }
 
+  .landing-page img {
+    position: absolute;
+    top: 0;
+    margin-top: 2rem;
+    width: 10%;
+  }
+
   .landing {
     text-decoration: none;
     outline: none;
     cursor: pointer;
     color: #FFF;
-    border: 2px solid white;
+    border: 0;
+    background: #000;
     padding: 0.5rem 2.5rem;
     text-transform: uppercase;
-    outline: none;
     margin: 1.5rem 0;
     font-size: 1.5rem;
     letter-spacing: 0.15rem;
   }
 
-  h1 {
-    font-size: 4.5rem;
-    margin: 1.5rem 0;
+  .landing-page h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: inherit;
+    margin-top: 3rem;
+  }
+
+  .landing-page h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.52;
+    letter-spacing: normal;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .landing-page-features {
+    /* @media (max-width: 400px) {
+      .flex-grid,
+      .flex-grid-thirds {
+        display: block;
+        .col {
+          width: 100%;
+          margin: 0 0 10px 0;
+        }
+      }
+    } */
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .landing-page-features .feature {
+    /* border: 1px solid #000; */
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-page-features img {
+    width: 10rem;
+  }
+
+  .landing-page-features .feature .feature-heading {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .instagram-feed {
+    background: #fbfbfb;
+    height: 30rem;
+    margin-top: 2rem;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .instagram-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .instagram-grid h2 {
+    margin: 3rem 0;
+  }
+
+  .instagram-feed-grid {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    flex: 1;
+  }
+
+  .instagram-feed-grid div {
+    width: 15%;
+    margin: 0.5rem;
+    height: 10rem;
+    border: 1px solid #0b0b0b;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: url('https://s3.amazonaws.com/thumbnails.illustrationsource.com/huge.17.85300.JPG');
+  }
+
+  .footer {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer .footer-links {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 1rem 0;
+  }
+
+  .footer .footer-links a {
+    color: #0b0b0b;
+    text-decoration: none;
+  }
+
+  .footer span {
+    font-size: 0.8rem;
   }
 
   @media (min-width: 768px) and (max-width: 1000px) {
-    h1 {
+    .landing-page h1 {
       font-size: 3rem;
     }
 
@@ -97,7 +299,7 @@ export default {
     ##Screen = B/w 481px to 767px
   */
   @media (min-width: 481px) and (max-width: 767px) {
-    h1 {
+    .landing-page h1 {
       font-size: 2rem;
     }
 
@@ -114,7 +316,7 @@ export default {
     ##Screen = B/w 320px to 479px
   */
   @media (min-width: 10px) and (max-width: 480px) {
-    h1 {
+    .landing-page h1 {
       font-size: 1.5rem;
     }
 

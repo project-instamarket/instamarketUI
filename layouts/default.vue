@@ -12,7 +12,8 @@ import 'noty/lib/themes/mint.css'
 import Navbar from '~/components/Navbar.component.vue'
 
 export default {
-  components: { Navbar }
+  components: { Navbar },
+  middleware: 'authenticate'
 }
 </script>
 
@@ -28,5 +29,6 @@ export default {
   body {
     width: 100vw;
     height: 100vh;
+    transition: 1s ease-in-out;
   }
 </style>

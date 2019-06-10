@@ -9,7 +9,6 @@
 export default {
   data() {
     return {
-      title: 'Instamarket',
       full_name: null,
       profile_picture: null,
       username: null

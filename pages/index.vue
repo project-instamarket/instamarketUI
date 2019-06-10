@@ -1,7 +1,7 @@
 <template>
   <div id="landing-page-container">
     <section class="landing-page">
-      <img src="~assets/images/logo.png" />
+      <img src="~assets/images/logo.png">
       <h1>Redefining social shopping.</h1>
       <h2>Let your followers shop your instagram feed</h2>
       <a :href="igLink" class="landing">Take A Dive</a>
@@ -9,7 +9,7 @@
 
     <section class="landing-page-features">
       <div class="feature">
-        <img src="~assets/svg/select-posts.svg" />
+        <img src="~assets/svg/select-posts.svg">
         <span class="feature-heading">Select Posts</span>
         <span>
           Convert your followers into customers as they shop
@@ -18,7 +18,7 @@
       </div>
 
       <div class="feature">
-        <img src="~assets/svg/create-shop.svg" />
+        <img src="~assets/svg/create-shop.svg">
         <span class="feature-heading">Create your shop</span>
         <span>
           Display your feeds on your own personal shop customized
@@ -27,7 +27,7 @@
       </div>
 
       <div class="feature">
-        <img src="~assets/svg/cart.svg" />
+        <img src="~assets/svg/cart.svg">
         <span class="feature-heading">Easy checkout</span>
         <span>
           Wondering how they'll pay?
@@ -36,7 +36,7 @@
       </div>
 
       <div class="feature">
-        <img src="~assets/svg/transport.svg" />
+        <img src="~assets/svg/transport.svg">
         <span class="feature-heading">Up a notch!</span>
         <span>
           Hassle free delivery!
@@ -80,7 +80,7 @@
         <a href="#">Shopping Policy</a>
         <a href="#">Help</a>
       </div>
-      <span>Copyright &copy; {{new Date().getFullYear()}}. Instamarket.co</span>
+      <span>Copyright &copy; {{ new Date().getFullYear() }}. Instamarket.co</span>
     </section>
   </div>
 </template>
@@ -105,7 +105,9 @@ export default {
     const isAuthenticated = this.$store.getters['authModule/isUserAuthenticated']
 
     if (isAuthenticated) {
+      console.log(isAuthenticated, '<====== isAUthed')
       this.$router.push('/dashboard')
+      console.log('kkdls')
     } else if (code) {
       return this.authenticateUser({ code })
         .then(() => this.$router.push('/dashboard'))

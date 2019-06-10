@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard-container">
-    <h1 class="dashboard__store-name">{{ full_name }}'s Store</h1>
+    <h1 class="dashboard__store-name">
+      {{ full_name }}'s Store
+    </h1>
     <p>@{{ username }}</p>
     <a :href="igUrl">instagram.com/{{ username }}</a>
 
@@ -30,18 +32,18 @@ export default {
       username: null
     }
   },
+  computed: {
+    igUrl() {
+      return `https://instagram.com/${this.username}`
+    }
+  },
   mounted() {
     const { full_name, profile_picture, username } = this.$store.state.userModule.user
     this.full_name = full_name
     this.profile_picture = profile_picture
     this.username = username
   },
-  middleware: 'authenticate',
-  computed: {
-    igUrl() {
-      return `https://instagram.com/${this.username}`
-    }
-  }
+  middleware: 'authenticate'
 }
 </script>
 

@@ -91,6 +91,7 @@ const CLIENT_ID = process.env.IG_CLIENT_ID
 const REDIRECT_URI = `${process.env.BASE_URL}`
 
 export default {
+  components: { Footer },
   data() {
     return {
       igLink: `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`
@@ -113,7 +114,6 @@ export default {
         }).show())
     }
   },
-  components: { Footer },
   methods: {
     ...mapActions({
       authenticateUser: 'authModule/authenticateUser'

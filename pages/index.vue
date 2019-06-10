@@ -1,10 +1,15 @@
 <template>
-  <div id="landing-page-container">
-    <section class="landing-page">
-      <img src="~assets/images/logo.png">
-      <h1>Redefining social shopping.</h1>
-      <h2>Let your followers shop your instagram feed</h2>
-      <a :href="igLink" class="landing">Take A Dive</a>
+  <div>
+    <section class="landing-page-header">
+      <img src="~assets/images/logo.png" class="im-logo">
+      <h1 class="im-header-description">
+        Redefining social shopping
+      </h1>
+
+      <h2 class="im-header-description">
+        Let your followers shop your instagram feed
+      </h2>
+      <a :href="igLink" class="landing-btn">Take A Dive</a>
     </section>
 
     <section class="landing-page-features">
@@ -126,29 +131,49 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-  .landing-page {
+<style scoped>
+  /*
+    the css of this component is built with mobile-first
+    implementation in mind
+  */
+  .landing-page-header {
     height: 70vh;
     width: 100vw;
-    position: relative;
     background: linear-gradient(0deg,rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.2)), url("~assets/images/landing_man.jpg");
     color: #000;
+    position: relative;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  .landing-page img {
-    position: absolute;
-    top: 0;
+  .im-logo {
     margin-top: 2rem;
-    width: 10%;
+    margin-bottom: 10rem;
+    width: 12rem;
   }
 
-  .landing {
+  .im-header-description {
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    color: inherit;
+  }
+
+  h2.im-header-description {
+    font-weight: 200;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .landing-btn {
     text-decoration: none;
     outline: none;
     cursor: pointer;
@@ -157,62 +182,32 @@ export default {
     background: #000;
     padding: 0.5rem 2.5rem;
     text-transform: uppercase;
-    margin: 1.5rem 0;
+    margin: 3rem 0;
     font-size: 1.5rem;
     letter-spacing: 0.15rem;
   }
 
-  .landing-page h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-align: left;
-    color: inherit;
-    margin-top: 3rem;
-  }
-
-  .landing-page h2 {
-    font-size: 2rem;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.52;
-    letter-spacing: normal;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
   .landing-page-features {
-    /* @media (max-width: 400px) {
-      .flex-grid,
-      .flex-grid-thirds {
-        display: block;
-        .col {
-          width: 100%;
-          margin: 0 0 10px 0;
-        }
-      }
-    } */
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+    padding: 0 1rem;
   }
 
   .landing-page-features .feature {
-    /* border: 1px solid #000; */
-    width: 22%;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    padding: 0.5rem;
   }
 
   .landing-page-features img {
-    width: 10rem;
+    width: 3rem;
+    height: 5rem;
   }
 
   .landing-page-features .feature .feature-heading {
@@ -222,10 +217,15 @@ export default {
 
   .instagram-feed {
     background: #fbfbfb;
-    height: 30rem;
+    height: 50rem;
     margin-top: 2rem;
     text-align: center;
     padding: 3rem;
+  }
+
+  .instagram-feed h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
   }
 
   .instagram-grid {
@@ -236,22 +236,20 @@ export default {
   }
 
   .instagram-grid h2 {
-    margin: 3rem 0;
+    margin: 2rem 0;
+    font-weight: bold;
   }
 
   .instagram-feed-grid {
     padding: 0 2rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    flex: 1;
   }
 
   .instagram-feed-grid div {
-    width: 15%;
+    width: 45%;
     margin: 0.5rem;
     height: 10rem;
     border: 1px solid #0b0b0b;
@@ -270,63 +268,60 @@ export default {
   }
 
   .footer .footer-links {
-    display: inline-flex;
-    justify-content: space-around;
-    width: 60%;
     margin: 1rem 0;
+    text-align: center;
   }
 
   .footer .footer-links a {
     color: #0b0b0b;
     text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: 0.5rem 0;
+    cursor: pointer;
   }
 
   .footer span {
     font-size: 0.8rem;
   }
 
-  @media (min-width: 768px) and (max-width: 1000px) {
-    .landing-page h1 {
-      font-size: 3rem;
+  /* desktop view */
+  @media (min-width: 769px) {
+    .landing-page-header {
+      background-size: cover;
     }
 
-    .landing {
+    .im-logo {
+      margin-top: 5rem;
+      margin-bottom: 10rem;
+    }
+
+    .im-header-description {
+      font-size: 3.5rem;
+    }
+
+    .landing-btn {
+      margin: 6rem 0;
+    }
+
+    .landing-page-features {
+      padding: 0 2rem;
+    }
+
+    .landing-page-features .feature {
+      width: 25%;
+    }
+
+    .instagram-feed-grid div {
+      width: 20%;
+    }
+
+    .footer .footer-links {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding: 0 4rem;
       margin: 1rem 0;
-      letter-spacing: 0;
-    }
-  }
-
-  /*
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
-  */
-  @media (min-width: 481px) and (max-width: 767px) {
-    .landing-page h1 {
-      font-size: 2rem;
-    }
-
-    .landing {
-      margin: 1rem 0;
-      letter-spacing: 0;
-      padding: 0.5rem 1.5rem;
-      font-size: 1rem;
-    }
-  }
-
-  /*
-    ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 479px
-  */
-  @media (min-width: 10px) and (max-width: 480px) {
-    .landing-page h1 {
-      font-size: 1.5rem;
-    }
-
-    .landing {
-      margin: 0.5rem 0;
-      letter-spacing: 0;
-      padding: 0.5rem 1.5rem;
-      font-size: 1rem;
     }
   }
 </style>

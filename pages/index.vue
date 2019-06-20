@@ -9,7 +9,9 @@
       <h2 class="im-header-description">
         Let your followers shop your instagram feed
       </h2>
-      <a :href="igLink" class="landing-btn">Take A Dive</a>
+
+      <Spinner v-if="loading" />
+      <a v-else :href="igLink" class="landing-btn">Take A Dive</a>
     </section>
 
     <section class="landing-page-features">
@@ -82,27 +84,38 @@
 
 <script>
 import Noty from 'noty'
-import Footer from '~/components/Footer.component.vue'
 import { mapActions } from 'vuex'
 
+import Footer from '~/components/Footer.component.vue'
+import Spinner from '~/components/Spinner.component.vue'
 import { notyOptions } from '../utils/options.util.js'
 
 const CLIENT_ID = process.env.IG_CLIENT_ID
-const REDIRECT_URI = `${process.env.BASE_URL}`
+const REDIRECT_URI = process.env.BASE_URL
 
 export default {
-  components: { Footer },
+  components: { Footer, Spinner },
   data() {
     return {
       igLink: `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`
     }
   },
+  computed: {
+    loading() {
+      const { loading } = this.$store.state.authModule
+      return loading
+    }
+  },
+  watch: {
+    loading(newValue, oldValue) {
+      console.log(`loading is now ${newValue}, not more ${oldValue}`)
+    }
+  },
   mounted() {
     const { query: { code } } = this.$router.currentRoute
-    const isAuthenticated = this.$store.getters['authModule/isUserAuthenticated']
+    const { isAuthenticated } = this.$store.state.authModule
 
     if (isAuthenticated) {
-      console.log(isAuthenticated, '<====== isAUthed')
       this.$router.push('/dashboard')
     } else if (code) {
       return this.authenticateUser({ code })

@@ -1,23 +1,25 @@
 <template>
-  <no-ssr>
-    <v-toolbar v-if="isAuthenticated" flat>
-      <v-toolbar-title>
-        <img src="~assets/images/logo.png" class="nav-logo">
-      </v-toolbar-title>
+  <section>
+    <no-ssr>
+      <v-toolbar v-if="isAuthenticated" flat>
+        <v-toolbar-title>
+          <img src="~assets/images/logo.png" class="nav-logo">
+        </v-toolbar-title>
 
-      <section class="profile">
-        <div class="user-info">
-          <div class="user-info-name">
-            <span>{{ full_name }}</span>
-            <span>@{{ username }}</span>
+        <section class="profile">
+          <div class="user-info">
+            <div class="user-info-name">
+              <span>{{ full_name }}</span>
+              <span>@{{ username }}</span>
+            </div>
+            <img :src="profile_picture" class="profile-picture">
           </div>
-          <img :src="profile_picture" class="profile-picture">
-        </div>
 
-        <img src="~assets/svg/cart.svg" class="cart-logo">
-      </section>
-    </v-toolbar>
-  </no-ssr>
+          <img src="~assets/svg/cart.svg" class="cart-logo">
+        </section>
+      </v-toolbar>
+    </no-ssr>
+  </section>
 </template>
 
 <script>

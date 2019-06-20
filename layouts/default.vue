@@ -21,7 +21,7 @@ export default {
   html {
     font-family: 'Poppins', sans-serif !important;
     line-height: 1.5;
-    font-size: calc(14px + 5.3125*(100vw - 801px)/1700);
+    font-size: calc(0.85rem + 5.3125*(100vw - 801px)/1700);
   }
   * {
     box-sizing: border-box;

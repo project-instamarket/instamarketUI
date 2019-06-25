@@ -24,6 +24,8 @@ export default {
     font-size: calc(0.85rem + 5.3125*(100vw - 801px)/1700);
   }
   * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
   body {

@@ -55,8 +55,8 @@ export default {
     width: 2.5rem;
     height: 2.5rem;
     cursor: pointer;
-    border: 2px solid #000;
-    padding: 7px;
+    border: 1px solid #000;
+    padding: 0.3rem;
   }
   .profile {
     display: flex;
@@ -64,9 +64,9 @@ export default {
     justify-content: center;
   }
   .profile-picture {
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid black;
+    width: 2.5rem;
+    height: 100%;
+    border: 1px solid black;
     border-radius: 50%;
   }
   .user-info {
@@ -74,9 +74,9 @@ export default {
     align-items: center;
     justify-content: center;
     margin: 0 1rem;
-    border: 2px solid #000;
-    height: 100%;
+    height: 2.5rem;
     box-sizing: border-box;
+    width: 10rem;
   }
   .user-info-name {
     display: flex;

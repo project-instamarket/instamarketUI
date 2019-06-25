@@ -43,6 +43,11 @@ const authModule = {
       cookies.set('im-token', payload.token)
       this.$axios.setToken(payload.token, 'Bearer')
       dispatch('userModule/setLoggedinUser', decode(payload.token), { root: true })
+    },
+
+    logout({ commit }) {
+      cookies.remove('im-token')
+      commit(SET_LOGOUT_STATE)
     }
   },
   state: () => ({

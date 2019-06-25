@@ -106,11 +106,6 @@ export default {
       return loading
     }
   },
-  watch: {
-    loading(newValue, oldValue) {
-      console.log(`loading is now ${newValue}, not more ${oldValue}`)
-    }
-  },
   mounted() {
     const { query: { code } } = this.$router.currentRoute
     const { isAuthenticated } = this.$store.state.authModule
@@ -156,7 +151,7 @@ export default {
 
   .im-logo {
     margin-top: 2rem;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
     width: 12rem;
   }
 
@@ -270,7 +265,7 @@ export default {
 
     .im-logo {
       margin-top: 5rem;
-      margin-bottom: 10rem;
+      margin-bottom: 7rem;
     }
 
     .im-header-description {

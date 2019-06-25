@@ -63,7 +63,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/vuetify',
-    { src: '~/plugins/vuexPersistedState.js', ssr: false }
+    { src: '~/plugins/vuexPersistedState.js', ssr: false },
+    { src: '~/plugins/axios.js', ssr: false }
   ],
 
   /*

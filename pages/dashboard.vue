@@ -4,27 +4,30 @@
       {{ full_name }}'s Store
     </h1>
     <p>@{{ username }}</p>
-    <a :href="igUrl">instagram.com/{{ username }}</a>
+    <a :href="igUrl" target="_blank" class="dashboard__profile-link">instagram.com/{{ username }}</a>
 
-    <section class="dashboard__store-grid">
-      <div class="dashboard__store-item" />
-      <div class="dashboard__store-item" />
-      <div class="dashboard__store-item" />
-      <div class="dashboard__store-item" />
-      <div class="dashboard__store-item" />
-      <div class="dashboard__store-item" />
-      <div class="dashboard__store-item" />
-    </section>
+    <Spinner v-if="loading" class="spinner" />
+    <ImageContainer v-else :userMedia="userMedia" />
 
     <Footer />
   </div>
 </template>
 
 <script>
+import Noty from 'noty'
+import { mapActions } from 'vuex'
+
 import Footer from '~/components/Footer.component.vue'
+import ImageContainer from '~/components/ImageContainer.component.vue'
+import Spinner from '~/components/Spinner.component.vue'
+import { notyOptions } from '../utils/options.util.js'
 
 export default {
-  components: { Footer },
+  components: {
+    Footer,
+    Spinner,
+    ImageContainer
+  },
   data() {
     return {
       full_name: null,
@@ -35,6 +38,26 @@ export default {
   computed: {
     igUrl() {
       return `https://instagram.com/${this.username}`
+    },
+    loading() {
+      const { loading } = this.$store.state.userModule
+      return loading
+    },
+    userMedia() {
+      const { media: userMedia } = this.$store.state.userModule
+      return userMedia
+    }
+  },
+  async created() {
+    try {
+      await this.fetchUserMedia()
+    } catch (error) {
+      const errorMessage = error.message || 'Error fetching user media'
+      new Noty({
+        ...notyOptions,
+        type: 'error',
+        text: errorMessage
+      }).show()
     }
   },
   mounted() {
@@ -42,6 +65,11 @@ export default {
     this.full_name = full_name
     this.profile_picture = profile_picture
     this.username = username
+  },
+  methods: {
+    ...mapActions({
+      fetchUserMedia: 'userModule/fetchUserMedia'
+    })
   },
   middleware: 'authenticate'
 }
@@ -60,27 +88,10 @@ export default {
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
-  .dashboard__store-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 1rem;
-    width: 100%;
-    padding: 2rem;
+  .spinner {
+    flex: 1
   }
-  .dashboard__store-item {
-    border: 1px solid #000;
-    width: 45%;
-    height: 18rem;
-    margin: 1rem 0;
-  }
-
-  @media (min-width: 769px) {
-    .dashboard__store-grid {
-      padding: 2rem;
-    }
-    .dashboard__store-item {
-      width: 15%;
-    }
+  .dashboard__profile-link {
+    color: #000;
   }
 </style>

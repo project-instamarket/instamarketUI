@@ -24,13 +24,13 @@ const userModule = {
     setLoggedinUser({ commit }, payload) {
       commit(SET_USER, payload)
     },
-    async fetchUserMedia({ commit, dispatch }) {
+    async fetchUserMedia({ commit }) {
       try {
         commit(SET_LOADING, true)
         const { data: userMedia } = await this.$axios.$get('/user/media')
         commit(SET_MEDIA, userMedia)
         commit(SET_LOADING, false)
-        return dispatch()
+        return Promise.resolve()
       } catch (error) {
         commit(SET_LOADING, false)
         return Promise.reject(error)
